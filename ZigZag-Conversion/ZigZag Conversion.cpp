@@ -32,7 +32,7 @@ public:
           res = res+s[j];   // 垂直线上的元素
           if(i != 0 && i != numRows - 1 && j + 2*(numRows - i - 1) < s.size())
           {
-            res = res + s[j + 2*(numRows - i - 1)];   // 对较上的元素
+            res = res + s[j + 2*(numRows - i - 1)];   // 对角线上的元素
           }
         }
       }
