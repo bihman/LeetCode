@@ -22,7 +22,7 @@ public:
     vector<vector<int> > matrix(n, vector<int> (n));
     int i,j;
     int m = 1;
-    for(i = 0; i < n / 2; i++)
+    for(i = 0; i < n / 2; i++)   // i表示圈数，左右->上下->右左->下上 为一圈
     {
       // 从左向右
       for(j = i; j < n-i-1; j++)
