@@ -5,6 +5,7 @@ The new list should be made by splicing together the nodes of the first two list
 
 // 合并两个有序表
 // 思路：逐个元素进行比较
+// 解法一：
 
 /**
  * Definition for singly-linked list.
@@ -59,3 +60,49 @@ The new list should be made by splicing together the nodes of the first two list
       return p.next;
     }
  };
+
+
+// 解法二：
+class Solution
+{
+public:
+ ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
+ {
+  ListNode *l3, *p;
+  if(l1 == NULL)
+   return l2;
+  if(l2 == NULL)
+   return l1;
+  if(l1->val < l2->val)
+  {
+   l3 = l1;
+   l1 = l1->next;
+  }
+  else
+  {
+   l3 = l2;
+   l2 = l2->next;
+  }
+  p = l3;
+  while(l1 && l2)
+  {
+   if(l1->val < l2->val)
+   {
+    p->next = l1;
+    p = p->next;
+    l1 = l1->next;
+   }
+   else
+   {
+    p->next = l2;
+    p = p->next;
+    l2 = l2->next;
+   }
+  }
+  if(l1)
+   p->next = l1;
+  else
+   p->next = l2;
+  return l3;
+ }
+};
